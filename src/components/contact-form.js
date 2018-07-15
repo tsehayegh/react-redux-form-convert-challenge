@@ -1,15 +1,30 @@
 import React from 'react';
+import {reduxForm, Field } from 'redux-form';
 
-export default function ContactForm() {
+
+export function ContactForm() {
     return (
         <form>
-            <label htmlFor="name">Your Name</label>
-            <input type="text" id="name" name="name" />
-            <label htmlFor="email">Email address</label>
-            <input type="email" id="email" name="email" />
-            <label htmlFor="message">Message</label>
-            <textarea id="message" name="message" />
+            <Field type="text" 
+                    id="name" 
+                    name="name"
+                    label="Your Name"
+                    component='input'/>
+            <Field type="email" 
+                    id="email" 
+                    name="email"
+                    label="Emaill address"
+                    component="input"/>
+            <Field id="message" 
+                    name="message"
+                    type="text"
+                    label="Message"
+                    component="textarea"/>
             <button>Submit</button>
         </form>
     );
 }
+export default reduxForm({
+    form: 'register'
+})(ContactForm);
+
